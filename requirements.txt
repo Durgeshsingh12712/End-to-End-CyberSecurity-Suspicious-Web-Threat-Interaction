@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+flask
+PyYAML
+urllib
+python-box[all]
+ensure
+pickle
+types-PyYAML
+matplotlib
+seaborn
+networkx
+
+-e .
