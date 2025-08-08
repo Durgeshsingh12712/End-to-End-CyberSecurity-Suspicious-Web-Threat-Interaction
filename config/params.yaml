@@ -1,0 +1,19 @@
+RANDOM_FOREST:
+  n_estimators: 100
+  random_state: 42
+  max_depth: 10
+  min_samples_split: 2
+
+NEURAL_NETWORK:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  hidden_units: [128, 64, 32]
+  dropout_rate: 0.3
+
+PREPROCESSING:
+  test_size: 0.3
+  random_state: 42
+  scaler_type: "StandardScaler"
+
+TARGET_COLUMN: "is_suspicious"
