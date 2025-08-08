@@ -2,6 +2,7 @@ from cyberSecurity.configure import ConfigurationManager
 from cyberSecurity.components import (
     DataIngestion,
     DataValidation,
+    DataTransformation
 )
 
 class TrainingPipeline():
@@ -19,3 +20,9 @@ class TrainingPipeline():
         data_validation_config = config.get_data_validation_config()
         data_validation = DataValidation(config=data_validation_config)
         data_validation_artifact = data_validation.initiate_data_validation()
+    
+    def data_tranformation(self):
+        config = ConfigurationManager()
+        data_transformation_config = config.get_data_transformation_config()
+        data_transformation = DataTransformation(config=data_transformation_config)
+        data_transformation_artifact = data_transformation.initiate_date_tranformation()

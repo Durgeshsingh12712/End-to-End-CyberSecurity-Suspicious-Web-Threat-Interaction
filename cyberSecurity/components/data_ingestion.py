@@ -38,6 +38,19 @@ class DataIngestion:
             df = pd.read_csv(self.config.local_data_file)
             logger.info(f"Dataset Shape: {df.shape}")
 
+            df = df.dropna().reset_index(drop=True)
+            logger.info(f"After Drop None Values : {df.shape}")
+
+            df = df.drop_duplicates().reset_index(drop=True)
+            logger.info(f"After remove duplicates : {df.shape}")
+
+            df['creation_time'] = pd.to_datetime(df['creation_time'])
+            df['end_time'] = pd.to_datetime(df['end_time'])
+            df['time'] = pd.to_datetime(df['time'])
+            df['src_ip_country_code'] = df['src_ip_country_code'].str.upper()
+            df['duration_seconds'] = (df['end_time'] - df['creation_time']).dt.total_seconds()
+            df['is_suspicious'] = (df['detection_types'] == 'waf_rule').astype(int)
+
             train_set, test_set = train_test_split(df, test_size=0.20, random_state=42)
 
             train_file_path = os.path.join(self.config.root_dir, "train.csv")

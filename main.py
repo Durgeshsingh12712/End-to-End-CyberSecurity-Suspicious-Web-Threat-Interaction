@@ -1,6 +1,7 @@
 from cyberSecurity.loggers import logger
 from cyberSecurity.pipeline import TrainingPipeline
 
+
 try:
     logger.info(f">>>>>>> Data Ingestion Started <<<<<<<")
     training_pipeline = TrainingPipeline()
@@ -15,6 +16,15 @@ try:
     training_pipeline = TrainingPipeline()
     training_pipeline.data_validation()
     logger.info(f">>>>>>> Data Validation Completed <<<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+try:
+    logger.info(f">>>>>>> Data Tranformation Started <<<<<<<")
+    training_pipeline = TrainingPipeline()
+    training_pipeline.data_tranformation()
+    logger.info(f">>>>>>> Data Tranformation Completed <<<<<<<")
 except Exception as e:
     logger.exception(e)
     raise e
