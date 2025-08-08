@@ -9,3 +9,12 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+try:
+    logger.info(f">>>>>>> Data Validation Started <<<<<<<")
+    training_pipeline = TrainingPipeline()
+    training_pipeline.data_validation()
+    logger.info(f">>>>>>> Data Validation Completed <<<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e

@@ -1,6 +1,7 @@
-from .constant import CONFIG_FILE_PATH, PARAMS_FILE_PATH
+from .constant import CONFIG_FILE_PATH, PARAMS_FILE_PATH, REQUIRED_COLUMNS
 
 ___all__ = [
     "CONFIG_FILE_PATH",
-    "PARAMS_FILE_PATH"
+    "PARAMS_FILE_PATH",
+    "REQUIRED_COLUMNS"
 ]
