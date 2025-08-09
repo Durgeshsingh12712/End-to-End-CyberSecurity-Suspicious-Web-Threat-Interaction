@@ -28,3 +28,12 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+try:
+    logger.info(f">>>>>>> Model Trainer Started <<<<<<<")
+    training_pipeline = TrainingPipeline()
+    training_pipeline.model_trainer()
+    logger.info(f">>>>>>> Model Trainer Completed <<<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
