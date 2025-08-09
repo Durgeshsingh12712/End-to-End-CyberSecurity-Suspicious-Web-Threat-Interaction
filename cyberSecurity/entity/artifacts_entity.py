@@ -21,3 +21,8 @@ class ModelTrainerArtifact:
     trained_model_file_path: str
     train_metric_artifact: dict
     test_metric_artifact: dict
+
+@dataclass
+class ModelEvaluationArtifact:
+    evaluation_report: dict
+    model_accuracy: float

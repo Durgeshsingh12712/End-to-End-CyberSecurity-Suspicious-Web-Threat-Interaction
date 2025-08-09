@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.layers import Dense, Dropout, Input
 from tensorflow.keras.optimizers import Adam
 
 from cyberSecurity.loggers import logger
@@ -45,7 +45,8 @@ class ModelTrainer:
     def train_neural_network_model(self, X_train, y_train, X_test, y_test):
         try:
             model = Sequential([
-                Dense(128, activation='relu', input_shape=(X_train.shape[1],)),
+                Input(shape=(X_train.shape[1],)),
+                Dense(128, activation='relu'),
                 Dropout(0.3),
                 Dense(64, activation='relu'),
                 Dropout(0.3),

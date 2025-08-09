@@ -37,3 +37,12 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+try:
+    logger.info(f">>>>>>> Model Evaluation Started <<<<<<<")
+    training_pipeline = TrainingPipeline()
+    training_pipeline.model_evaluation()
+    logger.info(f">>>>>>> Model Evaluation Completed <<<<<<<")
+except Exception as e:
+    logger.exception(e)
+    raise e
