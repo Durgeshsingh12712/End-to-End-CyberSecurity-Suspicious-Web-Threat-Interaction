@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Analysis Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .result {
+            font-size: 2em;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .suspicious {
+            background-color: #ffe6e6;
+            color: #d9534f;
+            border: 2px solid #d9534f;
+        }
+        .normal {
+            background-color: #e6ffe6;
+            color: #5cb85c;
+            border: 2px solid #5cb85c;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Threat Analysis Results</h1>
+        {% if results == "Suspicious" %}
+            <div class="result suspicious">
+                ⚠️ SUSPICIOUS ACTIVITY DETECTED
+            </div>
+            <p>The network traffic shows signs of potential security threats. Please investigate further.</p>
+        {% else %}
+            <div class="result normal">
+                ✅ NORMAL ACTIVITY
+            </div>
+            <p>The network traffic appears to be legitimate and poses no immediate threat.</p>
+        {% endif %}
+        
+        <a href="/" class="btn">Analyze Another Request</a>
+    </div>
+</body>
+</html>
