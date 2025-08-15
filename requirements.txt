@@ -4,11 +4,9 @@ scikit-learn
 tensorflow
 flask
 PyYAML
-urllib
 python-box[all]
 ensure
 joblib
-types-PyYAML
 matplotlib
 seaborn
 networkx
