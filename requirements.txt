@@ -7,7 +7,7 @@ PyYAML
 urllib
 python-box[all]
 ensure
-pickle
+joblib
 types-PyYAML
 matplotlib
 seaborn

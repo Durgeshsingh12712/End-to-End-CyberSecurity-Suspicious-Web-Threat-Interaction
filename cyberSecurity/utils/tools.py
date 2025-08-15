@@ -1,4 +1,4 @@
-import os, yaml, json, pickle
+import os, yaml, json, joblib
 from pathlib import Path
 from box import ConfigBox
 from box.exceptions import BoxValueError
@@ -41,22 +41,30 @@ def load_json(path: Path) -> ConfigBox:
     logger.info(f"Json file loaded successfully from: {path}")
     return ConfigBox(content)
 
-def save_bin(data, path: str):
-    try:
-        dir_path = os.path.dirname(path)
-        os.makedirs(dir_path, exist_ok=True)
+@ensure_annotations
+def save_bin(data, path: Path):
+    """save binary file
 
-        with open(path, 'wb') as f:
-            pickle.dump(data, f)
-    
-    except Exception as e:
-        raise e
+    Args:
+        data (Any): data to be saved as binary
+        path (Path): path to binary file
+    """
+    joblib.dump(value=data, filename=path)
+    logger.info(f"Binary file saved at: {path}")
 
 @ensure_annotations
 def load_bin(path: Path):
-    with open(path, 'rb') as f:
-        data = pickle.load(f)
-    logger.info(f"Binary file loaded from: {path}")
+    """load binary data
+
+    Args:
+        path (Path): path to binary file
+
+    Returns:
+        Any: object stored in the file
+    """
+
+    data = joblib.load(path)
+    logger.info(f"Binary file loaded from : {path}")
     return data
 
 @ensure_annotations
